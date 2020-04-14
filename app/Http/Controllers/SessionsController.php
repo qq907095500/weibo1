@@ -26,4 +26,11 @@ class SessionsController extends Controller
            return redirect()->back()->withInput();
        }
     }
+
+    public function destroy()
+    {
+        Auth::logout();
+        session()->flash('success', '您已经成功推出');
+        return redirect('login');
+    }
 }
